@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>casamusical</title>
 
     <!-- Styles -->
     
@@ -30,28 +30,30 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="principal">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url('/principal') }}">Inicio <span class="sr-only">(current)</span></a>
+                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="author">Autor</a>
+                    <a class="nav-link" href="{{ url('/author') }}">Autor</a>
+                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="medio">Medios</a>
+                    <a class="nav-link" href="{{ url('/medio') }}">Medios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="song">Canciones</a>
+                    <a class="nav-link" href="{{ url('/song') }}">Canciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="song_type">Generos</a>
+                    <a class="nav-link" href="{{ url('/song_type') }}">Generos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="singer">Interpretes</a>
+                    <a class="nav-link" href="{{ url('/singer') }}">Interpretes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="album">Albumes</a>
+                    <a class="nav-link" href="{{ url('/album') }}">Albumes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="home_music">Casa Musical</a>
+                    <a class="nav-link" href="{{ url('/home_music') }}">Casa Musical</a>
                     </li>
                 </ul>
               

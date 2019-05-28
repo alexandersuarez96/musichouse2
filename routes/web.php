@@ -16,12 +16,12 @@ Route::get('/principal', function () {
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('album', 'AlbumController');
-Route::resource('home_music', 'HomeMusicController');
-Route::resource('medio', 'MedioController');
-Route::resource('author', 'AuthorController');
-Route::resource('singer', 'SingerController');
-Route::resource('song_type', 'SongTypeController');
-Route::resource('song', 'SongController');
+Route::resource('/album', 'AlbumController');
+Route::resource('/home_music', 'HomeMusicController');
+Route::resource('/medio', 'MedioController');
+Route::resource('/author', 'AuthorController');
+Route::resource('/singer', 'SingerController');
+Route::resource('/song_type', 'SongTypeController');
+Route::resource('/song', 'SongController');
 
 Route::get('/home', 'HomeController@index')->name('home');

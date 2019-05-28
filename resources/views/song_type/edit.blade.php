@@ -1,15 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Editar Genero</h2>
-        </div>
+<h1></h1>
 
-    </div>
-</div>
-<div class="col-lg-8 col-md-8 col-xs-12">
-    @if ($errors->any())
+<div class="container">
+<div class="card text-white bg-primary mb-3" style="">
+  <div class="card-header"><h2>Editar Genero</h2></div>
+  <div class="card-body">
+  @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> Hubo algunos problemas con el ingreso de datos.<br><br>
         <ul>
@@ -42,5 +39,7 @@
         </div>
 
     </form>
+  </div>
+</div>
 </div>
   @endsection
