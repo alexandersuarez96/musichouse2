@@ -6,6 +6,7 @@ use App\Models\Album;
 use App\Models\HomeMusic;
 use App\Models\AlbumSong;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class AlbumController extends Controller
 {
@@ -112,4 +113,16 @@ class AlbumController extends Controller
       
         return redirect()->route('album.index')->with('success','Registro eliminado satisfactoriamente');
     }
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $albums= Album::all(); 
+       
+       $pdf =PDF::loadView('album.pdf',compact('albums'));
+       return $pdf->download('listado Albumes.pdf');
+    }
+    
 }

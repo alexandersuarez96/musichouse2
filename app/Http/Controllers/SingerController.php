@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Singer;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class SingerController extends Controller
 {
@@ -16,6 +17,7 @@ class SingerController extends Controller
     {
        $singers=Singer::orderBy('id','ASC')->paginate(6);
         return view('singer.index',compact('singers'));
+        
     }
  
     /**
@@ -108,7 +110,18 @@ class SingerController extends Controller
       
         return redirect()->route('singer.index')->with('success','Registro eliminado satisfactoriamente');
     }
- 
-   
+
+    
+ public function pdf()
+ {        
+     /**
+      * toma en cuenta que para ver los mismos 
+      * datos debemos hacer la misma consulta
+     **/
+    $singers= Singer::all(); 
+    
+    $pdf =PDF::loadView('singer.pdf',compact('singers'));
+    return $pdf->download('listado cantantes.pdf');
+ }
  }
  

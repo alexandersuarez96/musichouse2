@@ -16,7 +16,7 @@ class CreateSingersTable extends Migration
         Schema::create('singers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',30);
-            $table->string('nacionalidad',30);
+            $table->string('nacionalidad',100);
             $table->timestamps();
         });
     }

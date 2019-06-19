@@ -9,6 +9,7 @@ use App\Models\AuthorSong;
 use App\Models\AlbumSong;
 use App\Models\MediaSong;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class SongController extends Controller
 {
@@ -120,5 +121,16 @@ class SongController extends Controller
         Song::find($id)->delete();
       
         return redirect()->route('song.index')->with('success','Registro eliminado satisfactoriamente');
+    }
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $songs= Song::all(); 
+       
+       $pdf =PDF::loadView('song.pdf',compact('songs'));
+       return $pdf->download('listado canciones.pdf');
     }
 }

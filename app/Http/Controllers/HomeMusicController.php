@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeMusic;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class HomeMusicController extends Controller
 {
     /**
@@ -101,5 +101,16 @@ class HomeMusicController extends Controller
        HomeMusic::find($id)->delete();
       
         return redirect()->route('home_music.index')->with('success','Registro eliminado satisfactoriamente');
+    }
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $home_musics= HomeMusic::all(); 
+       
+       $pdf =PDF::loadView('home_music.pdf',compact('home_musics'));
+       return $pdf->download('listado casa musicales.pdf');
     }
 }

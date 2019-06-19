@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class AuthorController extends Controller
 {
     /**
@@ -108,7 +108,17 @@ class AuthorController extends Controller
       
         return redirect()->route('author.index')->with('success','Registro eliminado satisfactoriamente');
     }
- 
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $authors= Author::all(); 
+       
+       $pdf =PDF::loadView('author.pdf',compact('authors'));
+       return $pdf->download('listado Autores.pdf');
+    }
    
  }
  

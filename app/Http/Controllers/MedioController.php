@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medio;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class MedioController extends Controller
 {
     /**
@@ -100,5 +100,16 @@ class MedioController extends Controller
         Medio::find($id)->delete();
       
         return redirect()->route('medio.index')->with('success','Registro eliminado satisfactoriamente');
+    }
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $medios= Medio::all(); 
+       
+       $pdf =PDF::loadView('medio.pdf',compact('medios'));
+       return $pdf->download('listadomedios.pdf');
     }
 }

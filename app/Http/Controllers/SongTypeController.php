@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SongType;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class SongTypeController extends Controller
 {
     /**
@@ -102,7 +102,17 @@ class SongTypeController extends Controller
       
         return redirect()->route('song_type.index')->with('success','Registro eliminado satisfactoriamente');
     }
- 
+    public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+       $song_types= SongType::all(); 
+       
+       $pdf =PDF::loadView('song_type.pdf',compact('song_types'));
+       return $pdf->download('listado Generos.pdf');
+    }
    
  }
  

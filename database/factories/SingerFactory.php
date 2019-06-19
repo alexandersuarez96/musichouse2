@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Singer::class, function (Faker $faker) {
     return [
-        //
+        'nombre'=>$faker->name,
+        'nacionalidad'=>$faker->country,
     ];
 });

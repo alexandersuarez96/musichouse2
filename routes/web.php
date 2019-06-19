@@ -24,4 +24,10 @@ Route::resource('/singer', 'SingerController');
 Route::resource('/song_type', 'SongTypeController');
 Route::resource('/song', 'SongController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/mostrarcantantespdf', 'SingerController@pdf')->name('singer.pdf');  
+Route::get('/mostraralbumpdf', 'AlbumController@pdf')->name('album.pdf');  
+Route::get('/mostrarautorpdf', 'AuthorController@pdf')->name('author.pdf');  
+Route::get('/mostrarmediopdf', 'MedioController@pdf')->name('medio.pdf'); 
+Route::get('/mostrarcancionespdf', 'SongController@pdf')->name('song.pdf');  
+Route::get('/mostrargeneropdf', 'SongTypeController@pdf')->name('song_type.pdf');  
+Route::get('/mostrarcasamusicalpdf', 'HomeMusicController@pdf')->name('home_music.pdf');  

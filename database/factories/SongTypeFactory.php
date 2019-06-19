@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(SongType::class, function (Faker $faker) {
     return [
-        //
+        'nombre'=>$faker->name,
+        
     ];
 });

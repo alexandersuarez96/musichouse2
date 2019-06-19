@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-lg-12 margin-tb">
     <div class="pull-left">
-      <h2>Pagina Principal Autores</h2>
+      <h2>Pagina Principal Interpretes</h2>
     </div>
 
   </div>
@@ -32,11 +32,11 @@
       <td>{{$singer->id}}</td>
       <td>{{$singer->nombre}}</td>
       <td>{{$singer->nacionalidad}}</td>
-   
+
       <td>
         <form action="{{ route('singer.destroy',$singer->id) }}" method="POST">
 
-          
+
 
           <a class="btn btn-primary" href="{{ route('singer.edit',$singer->id) }}">Editar</a>
 
@@ -45,14 +45,25 @@
 
           <button type="submit" class="btn btn-danger">Borrar</button>
         </form>
+        
       </td>
     </tr>
     @endforeach
+  
   </table>
+  <th>
+    <div class="btn-group">
+      <a href="{{ route('singer.pdf') }}" class="btn btn-warning" target="blank">Generar PDF </a>
+    </div>
+  <td>
 
+    </th>
+    <h1></h1>
   </table>
 
   {{ $singers->links() }}
+
+
 </div>
 
 
